@@ -183,6 +183,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ],
 
+      'swim': [
+        {
+          title: 'Swim Workout 1',
+          imageUrl: 'https://people.com/thmb/XOlLAELumvdCVziMzkwzJ5eyD0Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(791x292:793x294)/jinx-1-983129e029a34b9b8a806895cd7c2181.jpg',
+          workoutUrl: 'SwimWorkout1.html'
+        },
+        {
+          title: 'Swim Workout 2',
+          imageUrl: 'https://assets3.thrillist.com/v1/image/3005223/792x816/scale;webp=auto;jpeg_quality=60.jpg',
+          workoutUrl: 'SwimWorkout2.html'
+        },
+
+      ],
+
 
       // Add more categories as needed
     };
