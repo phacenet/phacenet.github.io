@@ -107,6 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
           imageUrl: 'https://i.imgur.com/mkERGiq.jpg',
           workoutUrl: 'workout17.html'
         },
+        {
+          title: 'Plantar Fascitis',
+          imageUrl: 'https://my.clevelandclinic.org/-/scassets/images/org/health/articles/14709-plantar-fasciitis.jpg',
+          workoutUrl: 'PlantarFascitis.html'
+        },
       ],
 
       'mobility': [
