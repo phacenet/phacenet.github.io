@@ -21,8 +21,18 @@
     <button id="btn-10x" class="set-tracker-button">10x</button>
     <button id="btn-20x" class="set-tracker-button">20x</button>
     <div id="set-tracker" class="set-tracker-grid"></div>
-    <button id="mark-set-btn" class="set-tracker-button">Mark Set</button>
-    <button id="undo-btn" class="set-tracker-button">Undo</button>
+    <button id="mark-set-btn" class="set-tracker-button mark-set-button">Mark Set</button>
+    <button id="undo-btn" class="set-tracker-button undo-button">Undo</button>
+
+
+  <div id="timer-container" class="timer-container">
+  <h2>Timer</h2>
+  <div id="timer-display" class="timer-display">00:00</div>
+  <button id="start-timer-btn" class="timer-btn">Start</button>
+  <button id="stop-timer-btn" class="timer-btn">Stop</button>
+  <button id="reset-timer-btn" class="timer-btn">Reset</button>
+</div>
+
 
   </main>
 
@@ -75,6 +85,46 @@
       currentSet--;
     }
   });
+
+  const timerDisplay = document.getElementById('timer-display');
+const startTimerBtn = document.getElementById('start-timer-btn');
+const stopTimerBtn = document.getElementById('stop-timer-btn');
+const resetTimerBtn = document.getElementById('reset-timer-btn');
+
+let timerInterval;
+let startTime;
+let elapsedTime = 0;
+
+function displayTime() {
+  const totalSeconds = Math.floor(elapsedTime / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const remainingSeconds = totalSeconds % 60;
+  timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+function startTimer() {
+  startTime = performance.now() - elapsedTime;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    elapsedTime = performance.now() - startTime;
+    displayTime();
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  elapsedTime = 0;
+  displayTime();
+}
+
+startTimerBtn.addEventListener('click', startTimer);
+stopTimerBtn.addEventListener('click', stopTimer);
+resetTimerBtn.addEventListener('click', resetTimer);
+
 
   </script>
 </body>
