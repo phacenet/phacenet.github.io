@@ -400,8 +400,34 @@ input[type='checkbox']:not(.set-checkbox):checked {
 }
 
 .undo-button {
-  font-size: 1.1rem; /* increase the font size */
-  padding: 0.65rem 1.25rem; /* add more padding */
-  margin: 1rem 0 1rem auto; /* add margin and center the button to the left */
-  display: block; /* block display will make the button center align with the 'auto' margin */
+  font-size: 1.1rem;
+  padding: 0.65rem 1.25rem;
+  margin: 1rem auto 1rem 0; /* change to align to the left */
+  display: block;
+}
+
+.timer-container-small {
+  text-align: left;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #090c11;
+  border-radius: 20px;
+  max-width: 200px;
+}
+
+.timer-display-small {
+  font-size: 4rem;
+  color: rgba(252, 252, 252, 1);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.timer-btn-small {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+  background-color: rgba(252, 252, 252, 1);
+  color: rgba(17, 23, 33, 1);
+  border: none;
+  border-radius: 5px;
 }
