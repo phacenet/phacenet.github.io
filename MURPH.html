@@ -16,22 +16,31 @@
   </header>
   <main>
     <h1 style="padding-left: 1rem;">MURPH</h1>
-    <p class="description">Pay The Man</p>
 
-    <button id="btn-10x" class="set-tracker-button">10x</button>
-    <button id="btn-20x" class="set-tracker-button">20x</button>
+    <div id="timer-container-top" class="timer-container timer-container-small timer-container-small-top">
+      <div id="timer-display-top" class="timer-display timer-display-small">00:00</div>
+      <button id="start-timer-btn-top" class="timer-btn timer-btn-small">Start</button>
+      <button id="stop-timer-btn-top" class="timer-btn timer-btn-small">Stop</button>
+      <button id="reset-timer-btn-top" class="timer-btn timer-btn-small">Reset</button>
+    </div>
+
+
+    <button id="create-10x" class="set-tracker-button button-large">10x</button>
+    <button id="create-20x" class="set-tracker-button button-large">20x</button>
     <div id="set-tracker" class="set-tracker-grid"></div>
     <button id="mark-set-btn" class="set-tracker-button mark-set-button">Mark Set</button>
     <button id="undo-btn" class="set-tracker-button undo-button">Undo</button>
 
 
-    <div id="timer-container" class="timer-container timer-container-small">
-      <h2>Timer</h2>
+    <div id="timer-container" class="timer-container timer-container-small timer-container-small-bottom">
       <div id="timer-display" class="timer-display timer-display-small">00:00</div>
       <button id="start-timer-btn" class="timer-btn timer-btn-small">Start</button>
       <button id="stop-timer-btn" class="timer-btn timer-btn-small">Stop</button>
       <button id="reset-timer-btn" class="timer-btn timer-btn-small">Reset</button>
     </div>
+
+
+
 
 
 
@@ -67,8 +76,8 @@
   }
 
 
-  document.getElementById("btn-10x").addEventListener("click", () => createTracker(10));
-  document.getElementById("btn-20x").addEventListener("click", () => createTracker(20));
+  document.getElementById("create-10x").addEventListener("click", () => createTracker(10));
+  document.getElementById("create-20x").addEventListener("click", () => createTracker(20));
 
   document.getElementById("mark-set-btn").addEventListener("click", () => {
     let checkbox = document.getElementById("set-" + (currentSet + 1));
@@ -124,6 +133,49 @@ function resetTimer() {
 startTimerBtn.addEventListener('click', startTimer);
 stopTimerBtn.addEventListener('click', stopTimer);
 resetTimerBtn.addEventListener('click', resetTimer);
+
+const timerDisplayTop = document.getElementById('timer-display-top');
+const startTimerBtnTop = document.getElementById('start-timer-btn-top');
+const stopTimerBtnTop = document.getElementById('stop-timer-btn-top');
+const resetTimerBtnTop = document.getElementById('reset-timer-btn-top');
+
+let timerIntervalTop;
+let startTimeTop;
+let elapsedTimeTop = 0;
+
+function displayTimeTop() {
+  const totalSecondsTop = Math.floor(elapsedTimeTop / 1000);
+  const minutesTop = Math.floor(totalSecondsTop / 60);
+  const remainingSecondsTop = totalSecondsTop % 60;
+  timerDisplayTop.textContent = `${String(minutesTop).padStart(2, '0')}:${String(remainingSecondsTop).padStart(2, '0')}`;
+}
+
+function startTimerTop() {
+  startTimeTop = performance.now() - elapsedTimeTop;
+  clearInterval(timerIntervalTop);
+  timerIntervalTop = setInterval(() => {
+    elapsedTimeTop = performance.now() - startTimeTop;
+    displayTimeTop();
+  }, 1000);
+}
+
+function stopTimerTop() {
+  clearInterval(timerIntervalTop);
+}
+
+function resetTimerTop() {
+  clearInterval(timerIntervalTop);
+  elapsedTimeTop = 0;
+  displayTimeTop();
+}
+
+startTimerBtnTop.addEventListener('click', startTimerTop);
+stopTimerBtnTop.addEventListener('click', stopTimerTop);
+resetTimerBtnTop.addEventListener('click', resetTimerTop);
+
+let timerTop = new Timer('#timer-container-top');
+
+
 
 
   </script>
