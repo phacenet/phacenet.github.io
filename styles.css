@@ -431,3 +431,25 @@ input[type='checkbox']:not(.set-checkbox):checked {
   border: none;
   border-radius: 5px;
 }
+
+@media (max-width: 600px) {
+  .undo-button {
+    margin: 1rem auto; /* center the button */
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .timer-container-small {
+    max-width: 150px; /* decrease the max-width */
+  }
+
+  .timer-display-small {
+    font-size: 2.5rem; /* decrease the font size */
+  }
+
+  .timer-btn-small {
+    font-size: 0.8rem; /* decrease the font size */
+    padding: 0.25rem 0.4rem; /* decrease the padding */
+  }
+}
