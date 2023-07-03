@@ -33,20 +33,29 @@
     const setTracker = document.getElementById("set-tracker");
     setTracker.innerHTML = ""; // Reset tracker
     for (let i = 1; i <= amount; i++) {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("checkbox-wrapper");
+
       const newCheckbox = document.createElement("input");
       newCheckbox.type = "checkbox";
       newCheckbox.classList.add("set-checkbox");
       newCheckbox.disabled = true;
       newCheckbox.id = "set-" + i;
+
       const label = document.createElement("label");
       label.classList.add("set-checkbox-label");
       label.innerHTML = i;
-      setTracker.appendChild(newCheckbox);
-      setTracker.appendChild(label);
+      label.setAttribute('for', "set-" + i);
+
+      wrapper.appendChild(newCheckbox);
+      wrapper.appendChild(label);
+      setTracker.appendChild(wrapper);
+
       if (i % 5 === 0) setTracker.appendChild(document.createElement("br")); // Break line every 5 items
     }
     currentSet = 0;
   }
+
 
   document.getElementById("btn-10x").addEventListener("click", () => createTracker(10));
   document.getElementById("btn-20x").addEventListener("click", () => createTracker(20));
