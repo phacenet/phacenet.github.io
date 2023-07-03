@@ -403,17 +403,34 @@ input[type='checkbox']:not(.set-checkbox):checked {
   font-size: 1.1rem;
   padding: 0.65rem 1.25rem;
   margin: 1rem auto 1rem 0; /* change to align to the left */
+  margin-top: 4rem; /* adjust as necessary */
   display: block;
 }
 
-.timer-container-small {
-  text-align: left;
+.timer-container-small-bottom {
+  position: absolute; /* changed from fixed to absolute */
+  right: 0; /* align to the right */
+  bottom: 20rem; /* align with the "Undo" button, adjust as needed */
+  text-align: center;
   padding: 1rem;
   margin: 1rem 0;
   background-color: #090c11;
   border-radius: 20px;
   max-width: 200px;
 }
+
+.timer-container-small-top {
+  position: absolute; /* changed from fixed to absolute */
+  right: 0; /* align to the right */
+  top: 2rem; /* align with the 10x and 20x buttons, adjust as needed */
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #090c11;
+  border-radius: 20px;
+  max-width: 200px;
+}
+
 
 .timer-display-small {
   font-size: 4rem;
@@ -452,4 +469,13 @@ input[type='checkbox']:not(.set-checkbox):checked {
     font-size: 0.8rem; /* decrease the font size */
     padding: 0.25rem 0.4rem; /* decrease the padding */
   }
+}
+
+.button-large {
+  font-size: 1.5rem; /* adjust as necessary */
+  padding: 0.75rem 1.5rem; /* adjust as necessary */
+}
+
+#timer-container-top {
+  top: 8rem; /* align with the 10x and 20x buttons, adjust as needed */
 }
