@@ -385,3 +385,23 @@ input[type='checkbox']:not(.set-checkbox):checked {
   background: #cc0000;
   color: #fff;
 }
+
+@media (max-width: 600px) {
+  .checkbox-wrapper {
+    margin-bottom: 50px;
+  }
+}
+
+.mark-set-button {
+  font-size: 1.2rem; /* increase the font size */
+  padding: 0.75rem 1.5rem; /* add more padding */
+  margin: 1rem auto; /* add margin and center the button */
+  display: block; /* block display will make the button center align with the 'auto' margin */
+}
+
+.undo-button {
+  font-size: 1.1rem; /* increase the font size */
+  padding: 0.65rem 1.25rem; /* add more padding */
+  margin: 1rem 0 1rem auto; /* add margin and center the button to the left */
+  display: block; /* block display will make the button center align with the 'auto' margin */
+}
