@@ -25,13 +25,14 @@
     <button id="undo-btn" class="set-tracker-button undo-button">Undo</button>
 
 
-  <div id="timer-container" class="timer-container">
-  <h2>Timer</h2>
-  <div id="timer-display" class="timer-display">00:00</div>
-  <button id="start-timer-btn" class="timer-btn">Start</button>
-  <button id="stop-timer-btn" class="timer-btn">Stop</button>
-  <button id="reset-timer-btn" class="timer-btn">Reset</button>
-</div>
+    <div id="timer-container" class="timer-container timer-container-small">
+      <h2>Timer</h2>
+      <div id="timer-display" class="timer-display timer-display-small">00:00</div>
+      <button id="start-timer-btn" class="timer-btn timer-btn-small">Start</button>
+      <button id="stop-timer-btn" class="timer-btn timer-btn-small">Stop</button>
+      <button id="reset-timer-btn" class="timer-btn timer-btn-small">Reset</button>
+    </div>
+
 
 
   </main>
@@ -61,7 +62,6 @@
       wrapper.appendChild(label);
       setTracker.appendChild(wrapper);
 
-      if (i % 5 === 0) setTracker.appendChild(document.createElement("br")); // Break line every 5 items
     }
     currentSet = 0;
   }
