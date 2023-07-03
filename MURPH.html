@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>New Page</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1 style="padding-left: 1rem;">New Page</h1>
+    <p class="description">Your new description text goes here.</p>
+
+    <button id="btn-10x" class="set-tracker-button">10x</button>
+    <button id="btn-20x" class="set-tracker-button">20x</button>
+    <div id="set-tracker" class="set-tracker-grid"></div>
+    <button id="mark-set-btn" class="set-tracker-button">Mark Set</button>
+    <button id="undo-btn" class="set-tracker-button">Undo</button>
+
+  </main>
+
+  <!-- Add the rest of your code here -->
+  <script>
+  let currentSet = 0;
+  function createTracker(amount) {
+    const setTracker = document.getElementById("set-tracker");
+    setTracker.innerHTML = ""; // Reset tracker
+    for (let i = 1; i <= amount; i++) {
+      const newCheckbox = document.createElement("input");
+      newCheckbox.type = "checkbox";
+      newCheckbox.classList.add("set-checkbox");
+      newCheckbox.disabled = true;
+      newCheckbox.id = "set-" + i;
+      const label = document.createElement("label");
+      label.classList.add("set-checkbox-label");
+      label.innerHTML = i;
+      setTracker.appendChild(newCheckbox);
+      setTracker.appendChild(label);
+      if (i % 5 === 0) setTracker.appendChild(document.createElement("br")); // Break line every 5 items
+    }
+    currentSet = 0;
+  }
+
+  document.getElementById("btn-10x").addEventListener("click", () => createTracker(10));
+  document.getElementById("btn-20x").addEventListener("click", () => createTracker(20));
+
+  document.getElementById("mark-set-btn").addEventListener("click", () => {
+    currentSet++;
+    let checkbox = document.getElementById("set-" + currentSet);
+    if (checkbox) {
+      checkbox.checked = true;
+    }
+  });
+
+  document.getElementById("undo-btn").addEventListener("click", () => {
+    let checkbox = document.getElementById("set-" + currentSet);
+    if (checkbox) {
+      checkbox.checked = false;
+    }
+    currentSet--;
+  });
+  </script>
+</body>
+</html>
