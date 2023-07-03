@@ -61,9 +61,9 @@
   document.getElementById("btn-20x").addEventListener("click", () => createTracker(20));
 
   document.getElementById("mark-set-btn").addEventListener("click", () => {
-    currentSet++;
-    let checkbox = document.getElementById("set-" + currentSet);
+    let checkbox = document.getElementById("set-" + (currentSet + 1));
     if (checkbox) {
+      currentSet++;
       checkbox.checked = true;
     }
   });
@@ -72,9 +72,10 @@
     let checkbox = document.getElementById("set-" + currentSet);
     if (checkbox) {
       checkbox.checked = false;
+      currentSet--;
     }
-    currentSet--;
   });
+
   </script>
 </body>
 </html>
