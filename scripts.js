@@ -202,6 +202,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ],
 
+      'hero': [
+        {
+          title: 'MURPH',
+          imageUrl: 'https://people.com/thmb/XOlLAELumvdCVziMzkwzJ5eyD0Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(791x292:793x294)/jinx-1-983129e029a34b9b8a806895cd7c2181.jpg',
+          workoutUrl: 'MURPH.html'
+        },
+
+
+      ],
+
 
       // Add more categories as needed
     };
