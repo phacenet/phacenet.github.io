@@ -443,8 +443,7 @@
       <button id="add-set-btn" class="set-tracker-button">Add Set</button>
       <button id="clear-sets-btn" class="set-tracker-button">Clear Sets</button>
     </div>
-
-</section>
+  </section>
 
 <!-- Add this code where you want the timer to appear, for example, right above the closing </body> tag -->
 <div id="timer-container" class="timer-container">
@@ -497,27 +496,38 @@ saveableCheckboxes.forEach((checkbox, index) => {
 
 
 
-  // Set tracker script
-  const addSetBtn = document.getElementById("add-set-btn");
-  const clearSetsBtn = document.getElementById("clear-sets-btn");
-  const setTracker = document.getElementById("set-tracker");
+// Set tracker script
+const addSetBtn = document.getElementById("add-set-btn");
+const clearSetsBtn = document.getElementById("clear-sets-btn");
+const setTracker = document.getElementById("set-tracker");
 
-  addSetBtn.addEventListener("click", () => {
-    const currentSets = setTracker.childElementCount;
-    if (currentSets < 16) {
-      const newCheckbox = document.createElement("input");
-      newCheckbox.type = "checkbox";
-      newCheckbox.classList.add("set-checkbox");
-      setTracker.appendChild(newCheckbox);
-    }
-  });
+addSetBtn.addEventListener("click", () => {
+  const currentSets = setTracker.querySelectorAll('.set-checkbox').length;
+  if (currentSets < 20) {
+    const newSetDiv = document.createElement("div"); // New container div
+    newSetDiv.style.display = "inline-block";
 
+    const newCheckbox = document.createElement("input");
+    newCheckbox.type = "checkbox";
+    newCheckbox.classList.add("set-checkbox");
+    newCheckbox.id = "set-" + (currentSets + 1);
+    newSetDiv.appendChild(newCheckbox); // Append to container
 
-  clearSetsBtn.addEventListener("click", () => {
-    while (setTracker.firstChild) {
-      setTracker.removeChild(setTracker.firstChild);
-    }
-  });
+    const newLabel = document.createElement("label");
+    newLabel.innerHTML = currentSets + 1;
+    newLabel.classList.add("checkbox-label");
+    newLabel.setAttribute("for", "set-" + (currentSets + 1));
+    newSetDiv.appendChild(newLabel); // Append to container
+
+    setTracker.appendChild(newSetDiv);
+  }
+});
+
+clearSetsBtn.addEventListener("click", () => {
+  while (setTracker.firstChild) {
+    setTracker.firstChild.remove();
+  }
+});
 
   const timerDisplay = document.getElementById('timer-display');
   const startTimerBtn = document.getElementById('start-timer-btn');

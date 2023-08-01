@@ -478,37 +478,3 @@ input[type='checkbox']:not(.set-checkbox):checked {
 .timer-btn-small {
   touch-action: manipulation;
 }
-
-.numbered-set-checkbox {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Keep this round */
-  -webkit-appearance: none; /* for Chrome and Safari */
-  -moz-appearance: none; /* for Firefox */
-  appearance: none; /* Standard */
-  outline: none;
-  background: #fff;
-  position: relative;
-}
-
-.numbered-set-checkbox::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background: #cc0000;
-  border-radius: 50%; /* Keep this round */
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.numbered-set-checkbox:checked::before {
-  opacity: 1;
-}
-
-.numbered-set-checkbox:checked {
-  background-color: #cc0000;
-}
