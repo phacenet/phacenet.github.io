@@ -130,3 +130,19 @@ clearSetsBtn.addEventListener("click", () => {
       });
     });
   });
+
+
+
+/////
+  const checkSetBtn = document.getElementById("check-set-btn");
+
+checkSetBtn.addEventListener("click", () => {
+  const setCheckboxes = setTracker.querySelectorAll('.set-checkbox');
+  for (let i = 0; i < setCheckboxes.length; i++) {
+    if (!setCheckboxes[i].checked) {
+      setCheckboxes[i].checked = true;
+      break;
+    }
+  }
+});
+///////
